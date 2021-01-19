@@ -279,9 +279,18 @@ def main():
         while True:
             user_input = input('input guess number : ')
             
+            if user_input == '0':
+                break
+            
             while not is_validated_number(user_input):
                 print('Wrong Input, Input again')
                 user_input = input('input guess number : ')
+                
+                if user_input == '0':
+                    break
+            
+            if user_input == '0':
+                break
 
             strike, ball = get_strikes_or_ball(user_input, random_number)
             print(f'Strikes : {strike} , Balls : {ball}')
@@ -295,7 +304,7 @@ def main():
                     print('Wrong Input, Input again')
                 break
         
-        if is_no(answer):
+        if user_input == '0' or is_no(answer):
             break
                     
     
